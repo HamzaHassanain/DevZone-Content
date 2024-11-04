@@ -1,0 +1,16 @@
+# Binary Trees Practice
+
+1. [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)
+2. [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)
+3. [Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees/)
+4. [Unique Binary Search Trees II](https://leetcode.com/problems/unique-binary-search-trees-ii/)
+5. [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)
+6. [Same Tree](https://leetcode.com/problems/same-tree/)
+7. [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/)
+8. [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)
+9. [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/)
+10. [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
+11. [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)
+12. [Minimum Distance Between BST Nodes](https://leetcode.com/problems/minimum-distance-between-bst-nodes/)
+13. [Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/)
+14. [Increasing Order Search Tree](https://leetcode.com/problems/increasing-order-search-tree/)
