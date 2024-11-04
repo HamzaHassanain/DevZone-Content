@@ -1,11 +1,12 @@
-# Sorting Algos I
+# Sorting Algos
 
 - [Selection Sort](#selection-sort)
 - [Bubble Sort](#bubble-sort)
 - [Insertion Sort](#insertion-sort)
 - [Divide and Conquer Algorithms](#divide-and-conquer-algorithms)
 - [Merge Sort](#merge-sort)
-- [Divide and Conquer Exercises](#exercises)
+- [Heap Sort](#heap-sort)
+- [Quick Sort](#quick-sort)
 
 ## Selection Sort
 
@@ -190,8 +191,167 @@ void mergeSort(vector<int>& arr, int l, int r) {
 
 ```
 
-## Divide and Conquer Exercises
+-Solve: [Merge K Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
 
-1. [Merge Sort](https://leetcode.com/problems/sort-an-array/)
-2. [Merge K Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
-3. [Longest Nice Substring](https://leetcode.com/problems/longest-nice-substring/)
+## Heap Sort
+
+### Heap
+
+A heap is a complete binary tree that satisfies the heap property. The heap property states that the key of each node is either greater than or equal to (max heap) or less than or equal to (min heap) the keys of its children.
+
+A heap can be represented as an array, where the parent of the node at index `i` is at index `(i - 1) / 2`, and the children of the node at index `i` are at indices `2 * i + 1` and `2 * i + 2`.
+
+### Heapify
+
+Heapify is an operation that maintains the heap property by moving the node at index `i` down the tree until the heap property is satisfied.
+
+```cpp
+
+void heapify(vector<int>& arr, int n, int i) {
+    int largest = i;
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
+
+    if (left < n && arr[left] > arr[largest]) {
+        largest = left;
+    }
+
+    if (right < n && arr[right] > arr[largest]) {
+        largest = right;
+    }
+
+    if (largest != i) {
+        swap(arr[i], arr[largest]);
+        heapify(arr, n, largest);
+    }
+}
+
+```
+
+### Heap Sort
+
+**Best Case Time Complexity**: O(n log n)
+**Worst Case Time Complexity**: O(n log n)
+**Average Case Time Complexity**: O(n log n)
+
+Heap Sort is a comparison-based sorting algorithm that uses a binary heap data structure to sort an array.
+
+How it works:
+
+1. Build a max heap from the array.
+2. Swap the root node with the last node and heapify the remaining nodes.
+3. Repeat the process for the remaining nodes.
+
+```cpp
+void heapSort(vector<int>& arr) {
+    int n = arr.size();
+
+    for (int i = n / 2 - 1; i >= 0; i--) {
+        heapify(arr, n, i);
+    }
+
+    for (int i = n - 1; i > 0; i--) {
+        swap(arr[0], arr[i]);
+        heapify(arr, i, 0);
+    }
+}
+```
+
+## Quick Sort
+
+### Quick Select
+
+What is Quick Select?
+
+Quick Select is a selection algorithm that selects the kth smallest element from an unsorted array in expected linear time.
+
+How does it work?
+
+1. Choose a pivot element from the array.
+2. Partition the array into two subarrays such that all elements less than the pivot are on the left and all elements greater than the pivot are on the right.
+3. If the pivot is at index k, return the pivot.
+
+```cpp
+
+int quickSelect(vector<int>& arr, int l, int r, int k) {
+    if (l == r) {
+        return arr[l];
+    }
+
+    int pivot = arr[l + (r - l) / 2];
+    int i = l;
+    int j = r;
+
+    while (i <= j) {
+        while (arr[i] < pivot) {
+            i++;
+        }
+
+        while (arr[j] > pivot) {
+            j--;
+        }
+
+        if (i <= j) {
+            swap(arr[i], arr[j]);
+            i++;
+            j--;
+        }
+    }
+
+    if (k <= j) {
+        return quickSelect(arr, l, j, k);
+    }
+
+    if (k >= i) {
+        return quickSelect(arr, i, r, k);
+    }
+
+    return arr[k];
+}
+
+```
+
+### Quick Sort
+
+**Best Case Time Complexity**: O(n log n)
+**Worst Case Time Complexity**: O(n^2)
+**Average Case Time Complexity**: O(n log n)
+
+Quick Sort is a comparison-based sorting algorithm that uses a divide and conquer strategy to sort an array.
+
+How it works:
+
+1. Choose a pivot element from the array.
+2. Partition the array into two subarrays such that all elements less than the pivot are on the left and all elements greater than the pivot are on the right.
+3. Recursively sort the two subarrays.
+
+```cpp
+
+void quickSort(vector<int>& arr, int l, int r) {
+    if (l < r) {
+        int pivot = arr[l + (r - l) / 2];
+        int i = l;
+        int j = r;
+
+        while (i <= j) {
+            while (arr[i] < pivot) {
+                i++;
+            }
+
+            while (arr[j] > pivot) {
+                j--;
+            }
+
+            if (i <= j) {
+                swap(arr[i], arr[j]);
+                i++;
+                j--;
+            }
+        }
+
+        quickSort(arr, l, j);
+        quickSort(arr, i, r);
+    }
+}
+
+```
