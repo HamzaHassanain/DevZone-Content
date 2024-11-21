@@ -161,7 +161,7 @@ void merge(vector<int>& arr, int l, int m, int r) {
 
     int i = 0, j = 0, k = l;
 
-    while (i < n1 && j < n2) {
+    while (i < n1 && j < n2) { // merge two halves
         if (L[i] <= R[j]) {
             arr[k++] = L[i++];
         } else {

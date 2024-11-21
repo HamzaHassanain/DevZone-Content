@@ -1,4 +1,4 @@
-# Sorting Algos Practice
+# Sorting Algos
 
 1. [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
 2. [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
